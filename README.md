@@ -1,2 +1,2 @@
 # nap
-Network Analyzing Site (Written in Flask)
+Network Analyzing Program (Written in Flask)
