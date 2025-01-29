@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Network Dashboard</h1>
+<div class="network-info-card">
+    <h2>Network Information</h2>
+    <p><strong>Public IP:</strong> {{ network_info.public_ip }}</p>
+    <p><strong>ISP:</strong> {{ network_info.isp }}</p>
+    <p><strong>City:</strong> {{ network_info.city }}</p>
+    <p><strong>Region:</strong> {{ network_info.region }}</p>
+    <p><strong>Country:</strong> {{ network_info.country }}</p>
+    <p><strong>Latitude:</strong> {{ network_info.latitude }}</p>
+    <p><strong>Longitude:</strong> {{ network_info.longitude }}</p>
+</div>
+
+<h2>Network Traffic Overview</h2>
+<canvas id="trafficChart" width="400" height="200"></canvas>
+
+<script>
+    const trafficData = {
+        labels: ["Bytes Sent", "Bytes Received"],
+        datasets: [{
+            label: 'Network Usage',
+            data: [{{ stats.bytes_sent }}, {{ stats.bytes_recv }}],
+            backgroundColor: ['#FF6F61', '#6F9EFF'],
+        }]
+    };
+
+    const config = {
+        type: 'bar',
+        data: trafficData,
+    };
+
+    const trafficChart = new Chart(
+        document.getElementById('trafficChart'),
+        config
+    );
+</script>
+{% endblock %}
+

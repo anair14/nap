@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Packet Analysis</h1>
+<ul>
+    {% for packet in packets %}
+        <li>{{ packet }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Speed Test Results</h1>
+<ul>
+    <li>Download Speed: {{ speed_data.download_speed }} Mbps</li>
+    <li>Upload Speed: {{ speed_data.upload_speed }} Mbps</li>
+    <li>Ping: {{ speed_data.ping }} ms</li>
+</ul>
+{% endblock %}
